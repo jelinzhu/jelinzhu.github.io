@@ -1477,7 +1477,7 @@ pre .javascript .function {
 .posts-expand .post-title {
   overflow-wrap: break-word;
   word-wrap: break-word;
-  text-align: center;
+  text-align: left;
   font-weight: 400;
 }
 .posts-expand .post-title-link {
@@ -1523,7 +1523,7 @@ pre .javascript .function {
   color: #999;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 12px;
-  text-align: center;
+  text-align: left;
 }
 .posts-expand .post-meta .post-category-list {
   display: inline-block;
@@ -1568,7 +1568,8 @@ pre .javascript .function {
   }
 }
 .post-button {
-  margin-top: 40px;
+  margin-top: 5px;
+  margin-left: 5px;
 }
 .posts-expand .post-tags {
   margin-top: 40px;
@@ -1850,7 +1851,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #083d9a;
+  background: #c317bf;
 }
 .links-of-blogroll {
   font-size: 13px;
