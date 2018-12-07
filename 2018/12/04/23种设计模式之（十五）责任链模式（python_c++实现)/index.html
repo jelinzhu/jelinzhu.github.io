@@ -7,17 +7,17 @@
 
 
 
-    <meta name="description" content="23种设计模式之（十五）责任链模式（Chain of Responsibility ）本文主要介绍23种设计模式之责任链模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接   责任链模式(Chain of Responsibility )概念责任链模式或者职责连模式，是行为模式之一，该模式构造一系列分别担当不同的职责的类的对象来共同完成一个任务，这些类">
+    <meta name="description" content="23种设计模式之（十五）责任链模式（Chain of Responsibility ）本文主要介绍23种设计模式之责任链模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
 <meta property="og:type" content="article">
 <meta property="og:title" content="23种设计模式之（十五）责任链模式（Chain of Responsibility ）">
 <meta property="og:url" content="http://blog.zhuzl.xyz/2018/12/04/23种设计模式之（十五）责任链模式（python_c++实现)/index.html">
 <meta property="og:site_name" content="zzl&#39;blog">
-<meta property="og:description" content="23种设计模式之（十五）责任链模式（Chain of Responsibility ）本文主要介绍23种设计模式之责任链模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接   责任链模式(Chain of Responsibility )概念责任链模式或者职责连模式，是行为模式之一，该模式构造一系列分别担当不同的职责的类的对象来共同完成一个任务，这些类">
+<meta property="og:description" content="23种设计模式之（十五）责任链模式（Chain of Responsibility ）本文主要介绍23种设计模式之责任链模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-05T07:35:00.828Z">
+<meta property="og:updated_time" content="2018-12-07T07:20:25.112Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="23种设计模式之（十五）责任链模式（Chain of Responsibility ）">
-<meta name="twitter:description" content="23种设计模式之（十五）责任链模式（Chain of Responsibility ）本文主要介绍23种设计模式之责任链模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接   责任链模式(Chain of Responsibility )概念责任链模式或者职责连模式，是行为模式之一，该模式构造一系列分别担当不同的职责的类的对象来共同完成一个任务，这些类">
+<meta name="twitter:description" content="23种设计模式之（十五）责任链模式（Chain of Responsibility ）本文主要介绍23种设计模式之责任链模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
 
 
 
@@ -140,7 +140,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    5 分钟 读完 (大约 781 个字)
+                    5 分钟 读完 (大约 782 个字)
                 </span>
                 
             </div>
@@ -162,6 +162,7 @@
 <li><strong>代码链接</strong></li>
 </ul>
 <hr>
+<a id="more"></a>
 <h1 id="责任链模式-Chain-of-Responsibility"><a href="#责任链模式-Chain-of-Responsibility" class="headerlink" title="责任链模式(Chain of Responsibility )"></a><strong>责任链模式(Chain of Responsibility )</strong></h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>责任链模式或者职责连模式，是行为模式之一，该模式构造一系列分别担当不同的职责的类的对象来共同完成一个任务，这些类的对象之间像链条一样紧密相连，所以被称作职责链模式。</p>
 <p>GoF对责任链模式的定义是：为解除请求的发送者和接收者之间耦合，而使多个对象都有机会处理这个请求。将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它。 </p>
 <h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><p>（1）、有多个对象可以处理同一个请求，具体哪个对象处理该请求由运行时刻自动确定。</p>

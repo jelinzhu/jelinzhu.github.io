@@ -7,17 +7,17 @@
 
 
 
-    <meta name="description" content="23种设计模式之（四）建造者模式（Builder）本文主要介绍23种设计模式之建造者模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接   建造者模式（Builder）概念建造者模式是一种对象创建型模式之一，用来隐藏复合对象的创建过程，它把复合对象的创建过程加以抽象，通过子类继承和重载的方式，动态地创建具有复合属性的对象。 建造者模式是为对象的创建而设">
+    <meta name="description" content="23种设计模式之（四）建造者模式（Builder）本文主要介绍23种设计模式之建造者模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
 <meta property="og:type" content="article">
 <meta property="og:title" content="23种设计模式之（四）建造者模式（Builder）">
 <meta property="og:url" content="http://blog.zhuzl.xyz/2018/12/04/23种设计模式之（四）建造者模式（python_c++实现）/index.html">
 <meta property="og:site_name" content="zzl&#39;blog">
-<meta property="og:description" content="23种设计模式之（四）建造者模式（Builder）本文主要介绍23种设计模式之建造者模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接   建造者模式（Builder）概念建造者模式是一种对象创建型模式之一，用来隐藏复合对象的创建过程，它把复合对象的创建过程加以抽象，通过子类继承和重载的方式，动态地创建具有复合属性的对象。 建造者模式是为对象的创建而设">
+<meta property="og:description" content="23种设计模式之（四）建造者模式（Builder）本文主要介绍23种设计模式之建造者模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-05T07:56:19.195Z">
+<meta property="og:updated_time" content="2018-12-07T07:20:11.193Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="23种设计模式之（四）建造者模式（Builder）">
-<meta name="twitter:description" content="23种设计模式之（四）建造者模式（Builder）本文主要介绍23种设计模式之建造者模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接   建造者模式（Builder）概念建造者模式是一种对象创建型模式之一，用来隐藏复合对象的创建过程，它把复合对象的创建过程加以抽象，通过子类继承和重载的方式，动态地创建具有复合属性的对象。 建造者模式是为对象的创建而设">
+<meta name="twitter:description" content="23种设计模式之（四）建造者模式（Builder）本文主要介绍23种设计模式之建造者模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
 
 
 
@@ -140,7 +140,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    7 分钟 读完 (大约 1055 个字)
+                    7 分钟 读完 (大约 1056 个字)
                 </span>
                 
             </div>
@@ -162,6 +162,7 @@
 <li><strong>代码链接</strong></li>
 </ul>
 <hr>
+<a id="more"></a>
 <h1 id="建造者模式（Builder）"><a href="#建造者模式（Builder）" class="headerlink" title="建造者模式（Builder）"></a><strong>建造者模式（Builder）</strong></h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>建造者模式是一种对象创建型模式之一，用来隐藏复合对象的创建过程，它把复合对象的创建过程加以抽象，通过子类继承和重载的方式，动态地创建具有复合属性的对象。</p>
 <p>建造者模式是为对象的创建而设计的模式：<br>（1）创建的是一个复合对象，被创建的对象为一个具有复合属性的复合对象 ；<br>（2）关注对象创建的各部分的创建过程，不同的工厂对产品属性有不同的创建方法</p>
 <p>GoF对建造者模式的定义是：将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。</p>

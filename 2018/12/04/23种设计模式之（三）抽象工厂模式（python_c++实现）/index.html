@@ -7,17 +7,17 @@
 
 
 
-    <meta name="description" content="23种设计模式之（三）抽象工厂模式（Abstract Factory）本文主要介绍23种设计模式之抽象工厂模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接   抽象工厂模式（Abstract Factory）概念抽象工厂模式是所有形态的工厂模式中最为抽象和最具一般性的。抽象工厂模式可以向客户端提供一个接口，使得客户端在不必指定产品的具体类型的情况下，">
+    <meta name="description" content="23种设计模式之（三）抽象工厂模式（Abstract Factory）本文主要介绍23种设计模式之抽象工厂模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
 <meta property="og:type" content="article">
 <meta property="og:title" content="23种设计模式之（三）抽象工厂模式（Abstract Factory）">
 <meta property="og:url" content="http://blog.zhuzl.xyz/2018/12/04/23种设计模式之（三）抽象工厂模式（python_c++实现）/index.html">
 <meta property="og:site_name" content="zzl&#39;blog">
-<meta property="og:description" content="23种设计模式之（三）抽象工厂模式（Abstract Factory）本文主要介绍23种设计模式之抽象工厂模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接   抽象工厂模式（Abstract Factory）概念抽象工厂模式是所有形态的工厂模式中最为抽象和最具一般性的。抽象工厂模式可以向客户端提供一个接口，使得客户端在不必指定产品的具体类型的情况下，">
+<meta property="og:description" content="23种设计模式之（三）抽象工厂模式（Abstract Factory）本文主要介绍23种设计模式之抽象工厂模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-05T08:32:44.181Z">
+<meta property="og:updated_time" content="2018-12-07T07:21:03.303Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="23种设计模式之（三）抽象工厂模式（Abstract Factory）">
-<meta name="twitter:description" content="23种设计模式之（三）抽象工厂模式（Abstract Factory）本文主要介绍23种设计模式之抽象工厂模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接   抽象工厂模式（Abstract Factory）概念抽象工厂模式是所有形态的工厂模式中最为抽象和最具一般性的。抽象工厂模式可以向客户端提供一个接口，使得客户端在不必指定产品的具体类型的情况下，">
+<meta name="twitter:description" content="23种设计模式之（三）抽象工厂模式（Abstract Factory）本文主要介绍23种设计模式之抽象工厂模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
 
 
 
@@ -140,7 +140,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    5 分钟 读完 (大约 732 个字)
+                    5 分钟 读完 (大约 733 个字)
                 </span>
                 
             </div>
@@ -162,6 +162,7 @@
 <li><strong>代码链接</strong></li>
 </ul>
 <hr>
+<a id="more"></a>
 <h1 id="抽象工厂模式（Abstract-Factory）"><a href="#抽象工厂模式（Abstract-Factory）" class="headerlink" title="抽象工厂模式（Abstract Factory）"></a><strong>抽象工厂模式（Abstract Factory）</strong></h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>抽象工厂模式是所有形态的工厂模式中最为抽象和最具一般性的。抽象工厂模式可以向客户端提供一个接口，使得客户端在不必指定产品的具体类型的情况下，能够创建多个产品族的产品对象。</p>
 <p>GoF对抽象工厂模式的定义是：抽闲工厂模式——提供一个创建一系列相关或相互依赖对象的接口，而无需指定它们具体的类。</p>
 <p>##应用场景<br>一系列相互依赖的对象有不同的具体实现，提供一种“封装机制”来避免客户程序和这种“多系列具体对象创建工作”的紧耦合。</p>

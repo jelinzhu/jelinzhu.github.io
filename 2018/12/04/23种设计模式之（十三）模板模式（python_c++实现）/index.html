@@ -7,17 +7,17 @@
 
 
 
-    <meta name="description" content="23种设计模式之（十三）模板模式（TemplateMethod）本文主要介绍23种设计模式之模板模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接   模板模式（TemplateMethod）概念模板模式，是行为模式之一，它把具有特定步骤算法中的某些必要的处理委让给抽象方法，通过子类继承对抽象方法的不同实现改变整个算法的行为，它的子类可以按需要重写方法">
+    <meta name="description" content="23种设计模式之（十三）模板模式（TemplateMethod）本文主要介绍23种设计模式之模板模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
 <meta property="og:type" content="article">
 <meta property="og:title" content="23种设计模式之（十三）模板模式（TemplateMethod）">
 <meta property="og:url" content="http://blog.zhuzl.xyz/2018/12/04/23种设计模式之（十三）模板模式（python_c++实现）/index.html">
 <meta property="og:site_name" content="zzl&#39;blog">
-<meta property="og:description" content="23种设计模式之（十三）模板模式（TemplateMethod）本文主要介绍23种设计模式之模板模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接   模板模式（TemplateMethod）概念模板模式，是行为模式之一，它把具有特定步骤算法中的某些必要的处理委让给抽象方法，通过子类继承对抽象方法的不同实现改变整个算法的行为，它的子类可以按需要重写方法">
+<meta property="og:description" content="23种设计模式之（十三）模板模式（TemplateMethod）本文主要介绍23种设计模式之模板模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-05T07:58:12.762Z">
+<meta property="og:updated_time" content="2018-12-07T07:20:34.228Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="23种设计模式之（十三）模板模式（TemplateMethod）">
-<meta name="twitter:description" content="23种设计模式之（十三）模板模式（TemplateMethod）本文主要介绍23种设计模式之模板模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接   模板模式（TemplateMethod）概念模板模式，是行为模式之一，它把具有特定步骤算法中的某些必要的处理委让给抽象方法，通过子类继承对抽象方法的不同实现改变整个算法的行为，它的子类可以按需要重写方法">
+<meta name="twitter:description" content="23种设计模式之（十三）模板模式（TemplateMethod）本文主要介绍23种设计模式之模板模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
 
 
 
@@ -140,7 +140,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4 分钟 读完 (大约 579 个字)
+                    4 分钟 读完 (大约 580 个字)
                 </span>
                 
             </div>
@@ -162,6 +162,7 @@
 <li><strong>代码链接</strong></li>
 </ul>
 <hr>
+<a id="more"></a>
 <h1 id="模板模式（TemplateMethod）"><a href="#模板模式（TemplateMethod）" class="headerlink" title="模板模式（TemplateMethod）"></a><strong>模板模式（TemplateMethod）</strong></h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>模板模式，是行为模式之一，它把具有特定步骤算法中的某些必要的处理委让给抽象方法，通过子类继承对抽象方法的不同实现改变整个算法的行为，它的子类可以按需要重写方法实现，但调用将以抽象类中定义的方式进行。</p>
 <p>GoF对模板模式的定义是：定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。Template Method使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。</p>
 <h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><p>（1）、 有多个子类共有的方法，且逻辑相同。 </p>

@@ -7,17 +7,17 @@
 
 
 
-    <meta name="description" content="23种设计模式之（二十）访问者模式（Visitor）本文主要介绍23种设计模式之访问者模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接   访问者模式(Visitor)概念在访问者模式（Visitor）中，我们使用了一个访问者类，它改变了元素类的执行算法。通过这种方式，元素的执行算法可以随着访问者改变而改变。这种类型的设计模式属于行为型模式。根据模式">
+    <meta name="description" content="23种设计模式之（二十）访问者模式（Visitor）本文主要介绍23种设计模式之访问者模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
 <meta property="og:type" content="article">
 <meta property="og:title" content="23种设计模式之（二十）访问者模式（Visitor）">
 <meta property="og:url" content="http://blog.zhuzl.xyz/2018/12/04/23种设计模式之（二十）访问者模式（python_c++实现)/index.html">
 <meta property="og:site_name" content="zzl&#39;blog">
-<meta property="og:description" content="23种设计模式之（二十）访问者模式（Visitor）本文主要介绍23种设计模式之访问者模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接   访问者模式(Visitor)概念在访问者模式（Visitor）中，我们使用了一个访问者类，它改变了元素类的执行算法。通过这种方式，元素的执行算法可以随着访问者改变而改变。这种类型的设计模式属于行为型模式。根据模式">
+<meta property="og:description" content="23种设计模式之（二十）访问者模式（Visitor）本文主要介绍23种设计模式之访问者模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-05T07:37:26.924Z">
+<meta property="og:updated_time" content="2018-12-07T07:21:32.656Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="23种设计模式之（二十）访问者模式（Visitor）">
-<meta name="twitter:description" content="23种设计模式之（二十）访问者模式（Visitor）本文主要介绍23种设计模式之访问者模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接   访问者模式(Visitor)概念在访问者模式（Visitor）中，我们使用了一个访问者类，它改变了元素类的执行算法。通过这种方式，元素的执行算法可以随着访问者改变而改变。这种类型的设计模式属于行为型模式。根据模式">
+<meta name="twitter:description" content="23种设计模式之（二十）访问者模式（Visitor）本文主要介绍23种设计模式之访问者模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
 
 
 
@@ -140,7 +140,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    7 分钟 读完 (大约 985 个字)
+                    7 分钟 读完 (大约 986 个字)
                 </span>
                 
             </div>
@@ -162,6 +162,7 @@
 <li><strong>代码链接</strong></li>
 </ul>
 <hr>
+<a id="more"></a>
 <h1 id="访问者模式-Visitor"><a href="#访问者模式-Visitor" class="headerlink" title="访问者模式(Visitor)"></a>访问者模式(Visitor)</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>在访问者模式（Visitor）中，我们使用了一个访问者类，它改变了元素类的执行算法。通过这种方式，元素的执行算法可以随着访问者改变而改变。这种类型的设计模式属于行为型模式。根据模式，元素对象已接受访问者对象，这样访问者对象就可以处理元素对象上的操作。</p>
 <p>GoF对访问者模式的定义是：表示一个作用于某对象结构中的各元素的操作。它使你可以在不改变各元素的类的前提下定义作用于这些元素的新操作。</p>
 <h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><p>（1）、对象结构中对象对应的类很少改变，但经常需要在此对象结构上定义新的操作。</p>

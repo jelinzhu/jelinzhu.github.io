@@ -7,17 +7,17 @@
 
 
 
-    <meta name="description" content="23种设计模式之（十七）中介者模式（Mediator）本文主要介绍23种设计模式之中介者模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接   中介者模式(Mediator)概念中介者模式是行为模式之一，在Mediator模式中，类之间的交互行为被统一放在Mediator的对象中，对象通过Mediator对象同其他对象交互，Mediator对象起着控制">
+    <meta name="description" content="23种设计模式之（十七）中介者模式（Mediator）本文主要介绍23种设计模式之中介者模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
 <meta property="og:type" content="article">
 <meta property="og:title" content="23种设计模式之（十七）中介者模式（Mediator）">
 <meta property="og:url" content="http://blog.zhuzl.xyz/2018/12/04/23种设计模式之（十七）中介者模式（python_c++实现)/index.html">
 <meta property="og:site_name" content="zzl&#39;blog">
-<meta property="og:description" content="23种设计模式之（十七）中介者模式（Mediator）本文主要介绍23种设计模式之中介者模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接   中介者模式(Mediator)概念中介者模式是行为模式之一，在Mediator模式中，类之间的交互行为被统一放在Mediator的对象中，对象通过Mediator对象同其他对象交互，Mediator对象起着控制">
+<meta property="og:description" content="23种设计模式之（十七）中介者模式（Mediator）本文主要介绍23种设计模式之中介者模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-05T07:35:23.525Z">
+<meta property="og:updated_time" content="2018-12-07T07:20:38.698Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="23种设计模式之（十七）中介者模式（Mediator）">
-<meta name="twitter:description" content="23种设计模式之（十七）中介者模式（Mediator）本文主要介绍23种设计模式之中介者模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接   中介者模式(Mediator)概念中介者模式是行为模式之一，在Mediator模式中，类之间的交互行为被统一放在Mediator的对象中，对象通过Mediator对象同其他对象交互，Mediator对象起着控制">
+<meta name="twitter:description" content="23种设计模式之（十七）中介者模式（Mediator）本文主要介绍23种设计模式之中介者模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
 
 
 
@@ -140,7 +140,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    5 分钟 读完 (大约 819 个字)
+                    5 分钟 读完 (大约 820 个字)
                 </span>
                 
             </div>
@@ -162,6 +162,7 @@
 <li><strong>代码链接</strong></li>
 </ul>
 <hr>
+<a id="more"></a>
 <h1 id="中介者模式-Mediator"><a href="#中介者模式-Mediator" class="headerlink" title="中介者模式(Mediator)"></a><strong>中介者模式(Mediator)</strong></h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>中介者模式是行为模式之一，在Mediator模式中，类之间的交互行为被统一放在Mediator的对象中，对象通过Mediator对象同其他对象交互，Mediator对象起着控制器的作用，是用来降低多个对象和类之间的通信复杂性，该类通常处理不同类之间的通信，并支持松耦合，使代码易于维护。</p>
 <p>GoF对中介者模式的定义是：用一个中介对象来封装一系列的对象交互。中介者使各对象不需要显式地相互引用，从而使其耦合松散，而且可以独立地改变它们之间的交互。 </p>
 <h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><p>（1）、 系统中对象之间存在比较复杂的引用关系，导致它们之间的依赖关系结构混乱而且难以复用该对象。 </p>

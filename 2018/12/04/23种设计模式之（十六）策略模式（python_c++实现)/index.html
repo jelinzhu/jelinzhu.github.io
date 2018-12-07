@@ -7,17 +7,17 @@
 
 
 
-    <meta name="description" content="23种设计模式之（十六）策略模式（Strategy ）本文主要介绍23种设计模式之策略模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接   策略模式(Strategy)概念策略模式是行为模式之一，它对一系列的算法加以封装，为所有算法定义一个抽象的算法接口，并通过继承该抽象算法接口对所有的算法加以封装和实现，具体的算法选择交由客户端决定（策略），Str">
+    <meta name="description" content="23种设计模式之（十六）策略模式（Strategy ）本文主要介绍23种设计模式之策略模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
 <meta property="og:type" content="article">
 <meta property="og:title" content="23种设计模式之（十六）策略模式（Strategy ）">
 <meta property="og:url" content="http://blog.zhuzl.xyz/2018/12/04/23种设计模式之（十六）策略模式（python_c++实现)/index.html">
 <meta property="og:site_name" content="zzl&#39;blog">
-<meta property="og:description" content="23种设计模式之（十六）策略模式（Strategy ）本文主要介绍23种设计模式之策略模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接   策略模式(Strategy)概念策略模式是行为模式之一，它对一系列的算法加以封装，为所有算法定义一个抽象的算法接口，并通过继承该抽象算法接口对所有的算法加以封装和实现，具体的算法选择交由客户端决定（策略），Str">
+<meta property="og:description" content="23种设计模式之（十六）策略模式（Strategy ）本文主要介绍23种设计模式之策略模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-05T07:35:30.296Z">
+<meta property="og:updated_time" content="2018-12-07T07:20:42.695Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="23种设计模式之（十六）策略模式（Strategy ）">
-<meta name="twitter:description" content="23种设计模式之（十六）策略模式（Strategy ）本文主要介绍23种设计模式之策略模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接   策略模式(Strategy)概念策略模式是行为模式之一，它对一系列的算法加以封装，为所有算法定义一个抽象的算法接口，并通过继承该抽象算法接口对所有的算法加以封装和实现，具体的算法选择交由客户端决定（策略），Str">
+<meta name="twitter:description" content="23种设计模式之（十六）策略模式（Strategy ）本文主要介绍23种设计模式之策略模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
 
 
 
@@ -140,7 +140,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4 分钟 读完 (大约 591 个字)
+                    4 分钟 读完 (大约 592 个字)
                 </span>
                 
             </div>
@@ -162,6 +162,7 @@
 <li><strong>代码链接</strong></li>
 </ul>
 <hr>
+<a id="more"></a>
 <h1 id="策略模式-Strategy"><a href="#策略模式-Strategy" class="headerlink" title="策略模式(Strategy)"></a><strong>策略模式(Strategy)</strong></h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>策略模式是行为模式之一，它对一系列的算法加以封装，为所有算法定义一个抽象的算法接口，并通过继承该抽象算法接口对所有的算法加以封装和实现，具体的算法选择交由客户端决定（策略），Strategy模式主要用来平滑地处理算法的切换 。</p>
 <p>GoF对策略模式的定义是：定义一系列的算法,把它们一个个封装起来, 并且使它们可相互替换。本模式使得算法的变化可独立于使用它的客户。 </p>
 <h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><p>（1）、如果在一个系统里面有许多类，它们之间的区别仅在于它们的行为，那么使用策略模式可以动态地让一个对象在许多行为中选择一种行为。 </p>

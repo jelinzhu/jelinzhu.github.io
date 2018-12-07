@@ -7,17 +7,17 @@
 
 
 
-    <meta name="description" content="23种设计模式之（二）工厂方法模式（Factory Method）本文主要介绍23种设计模式之工厂方法模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接   工厂方法模式（Factory Method）概念工厂方法模式属于类的创建型模式又被称为多态工厂模式 ，工厂方法模式的意义在于定义一个创建产品对象的工厂接口，将实际创建工作推迟到子类当中。 核心工厂">
+    <meta name="description" content="23种设计模式之（二）工厂方法模式（Factory Method）本文主要介绍23种设计模式之工厂方法模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
 <meta property="og:type" content="article">
 <meta property="og:title" content="23种设计模式之（二）工厂方法模式（Factory Method）">
 <meta property="og:url" content="http://blog.zhuzl.xyz/2018/12/04/23种设计模式之（二）工厂方法模式（python_c++实现）/index.html">
 <meta property="og:site_name" content="zzl&#39;blog">
-<meta property="og:description" content="23种设计模式之（二）工厂方法模式（Factory Method）本文主要介绍23种设计模式之工厂方法模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接   工厂方法模式（Factory Method）概念工厂方法模式属于类的创建型模式又被称为多态工厂模式 ，工厂方法模式的意义在于定义一个创建产品对象的工厂接口，将实际创建工作推迟到子类当中。 核心工厂">
+<meta property="og:description" content="23种设计模式之（二）工厂方法模式（Factory Method）本文主要介绍23种设计模式之工厂方法模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-05T08:34:03.826Z">
+<meta property="og:updated_time" content="2018-12-07T07:21:36.619Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="23种设计模式之（二）工厂方法模式（Factory Method）">
-<meta name="twitter:description" content="23种设计模式之（二）工厂方法模式（Factory Method）本文主要介绍23种设计模式之工厂方法模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接   工厂方法模式（Factory Method）概念工厂方法模式属于类的创建型模式又被称为多态工厂模式 ，工厂方法模式的意义在于定义一个创建产品对象的工厂接口，将实际创建工作推迟到子类当中。 核心工厂">
+<meta name="twitter:description" content="23种设计模式之（二）工厂方法模式（Factory Method）本文主要介绍23种设计模式之工厂方法模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
 
 
 
@@ -140,7 +140,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4 分钟 读完 (大约 656 个字)
+                    4 分钟 读完 (大约 657 个字)
                 </span>
                 
             </div>
@@ -162,6 +162,7 @@
 <li><strong>代码链接</strong></li>
 </ul>
 <hr>
+<a id="more"></a>
 <h1 id="工厂方法模式（Factory-Method）"><a href="#工厂方法模式（Factory-Method）" class="headerlink" title="工厂方法模式（Factory Method）"></a><strong>工厂方法模式（Factory Method）</strong></h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>工厂方法模式属于类的创建型模式又被称为多态工厂模式 ，工厂方法模式的意义在于定义一个创建产品对象的工厂接口，将实际创建工作推迟到子类当中。</p>
 <p>核心工厂类不再负责产品的创建，这样核心类成为一个抽象工厂角色，仅负责具体工厂子类必须实现的接口，这样进一步抽象化的好处是使得工厂方法模式可以使系统在不修改具体工厂角色的情况下引进新的产品。</p>
 <p>GoF对工厂方法模式的定义是：定义一个用于创建对象的接口，让子类决定将哪一个类实例化。</p>

@@ -7,17 +7,17 @@
 
 
 
-    <meta name="description" content="23种设计模式之（二十三）迭代器模式（Iterator）本文主要介绍23种设计模式之迭代器模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接   迭代器模式(Iterator)概念迭代模式，是行为模式之一，它把对容器中包含的内部对象的访问委让给外部类，使用Iterator（遍历）按顺序进行遍历访问的设计模式。 迭代器模式就是为了有效地处理按顺序进行遍历">
+    <meta name="description" content="23种设计模式之（二十三）迭代器模式（Iterator）本文主要介绍23种设计模式之迭代器模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
 <meta property="og:type" content="article">
 <meta property="og:title" content="23种设计模式之（二十三）迭代器模式（Iterator）">
 <meta property="og:url" content="http://blog.zhuzl.xyz/2018/12/04/23种设计模式之（二十三）迭代器模式（python_c++实现)/index.html">
 <meta property="og:site_name" content="zzl&#39;blog">
-<meta property="og:description" content="23种设计模式之（二十三）迭代器模式（Iterator）本文主要介绍23种设计模式之迭代器模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接   迭代器模式(Iterator)概念迭代模式，是行为模式之一，它把对容器中包含的内部对象的访问委让给外部类，使用Iterator（遍历）按顺序进行遍历访问的设计模式。 迭代器模式就是为了有效地处理按顺序进行遍历">
+<meta property="og:description" content="23种设计模式之（二十三）迭代器模式（Iterator）本文主要介绍23种设计模式之迭代器模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-05T07:36:50.794Z">
+<meta property="og:updated_time" content="2018-12-07T07:21:24.684Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="23种设计模式之（二十三）迭代器模式（Iterator）">
-<meta name="twitter:description" content="23种设计模式之（二十三）迭代器模式（Iterator）本文主要介绍23种设计模式之迭代器模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接   迭代器模式(Iterator)概念迭代模式，是行为模式之一，它把对容器中包含的内部对象的访问委让给外部类，使用Iterator（遍历）按顺序进行遍历访问的设计模式。 迭代器模式就是为了有效地处理按顺序进行遍历">
+<meta name="twitter:description" content="23种设计模式之（二十三）迭代器模式（Iterator）本文主要介绍23种设计模式之迭代器模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
 
 
 
@@ -140,7 +140,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    5 分钟 读完 (大约 690 个字)
+                    5 分钟 读完 (大约 691 个字)
                 </span>
                 
             </div>
@@ -162,6 +162,7 @@
 <li><strong>代码链接</strong></li>
 </ul>
 <hr>
+<a id="more"></a>
 <h1 id="迭代器模式-Iterator"><a href="#迭代器模式-Iterator" class="headerlink" title="迭代器模式(Iterator)"></a>迭代器模式(Iterator)</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>迭代模式，是行为模式之一，它把对容器中包含的内部对象的访问委让给外部类，使用Iterator（遍历）按顺序进行遍历访问的设计模式。</p>
 <p>迭代器模式就是为了有效地处理按顺序进行遍历访问的一种设计模式，简单地说，Iterator模式提供一种有效的方法，可以屏蔽聚集对象集合的容器类的实现细节，而能对容器内包含的对象元素按顺序进行有效的遍历访问。</p>
 <p>GoF对迭代器模式的定义是：提供一种方法顺序访问一个聚合对象中各个元素, 而又不需暴露该对象的内部表示。 </p>

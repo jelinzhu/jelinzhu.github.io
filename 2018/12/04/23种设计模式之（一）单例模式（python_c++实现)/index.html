@@ -7,17 +7,17 @@
 
 
 
-    <meta name="description" content="23种设计模式之（一）单例模式（Singleton）本文主要介绍23种设计模式之单例模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接   单例模式（Singleton）概念单例模式是一种对象创建型模式，使用单例模式，可以保证为一个类只生成唯一的实例对象。也就是说，在整个程序空间中，该类只存在一个实例对象。GoF对单例模式的定义是：保证一个类、只有一个">
+    <meta name="description" content="23种设计模式之（一）单例模式（Singleton）本文主要介绍23种设计模式之单例模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
 <meta property="og:type" content="article">
 <meta property="og:title" content="23种设计模式之（一）单例模式（Singleton）">
 <meta property="og:url" content="http://blog.zhuzl.xyz/2018/12/04/23种设计模式之（一）单例模式（python_c++实现)/index.html">
 <meta property="og:site_name" content="zzl&#39;blog">
-<meta property="og:description" content="23种设计模式之（一）单例模式（Singleton）本文主要介绍23种设计模式之单例模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接   单例模式（Singleton）概念单例模式是一种对象创建型模式，使用单例模式，可以保证为一个类只生成唯一的实例对象。也就是说，在整个程序空间中，该类只存在一个实例对象。GoF对单例模式的定义是：保证一个类、只有一个">
+<meta property="og:description" content="23种设计模式之（一）单例模式（Singleton）本文主要介绍23种设计模式之单例模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-05T07:55:15.785Z">
+<meta property="og:updated_time" content="2018-12-07T07:19:18.720Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="23种设计模式之（一）单例模式（Singleton）">
-<meta name="twitter:description" content="23种设计模式之（一）单例模式（Singleton）本文主要介绍23种设计模式之单例模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接   单例模式（Singleton）概念单例模式是一种对象创建型模式，使用单例模式，可以保证为一个类只生成唯一的实例对象。也就是说，在整个程序空间中，该类只存在一个实例对象。GoF对单例模式的定义是：保证一个类、只有一个">
+<meta name="twitter:description" content="23种设计模式之（一）单例模式（Singleton）本文主要介绍23种设计模式之单例模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
 
 
 
@@ -140,7 +140,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    5 分钟 读完 (大约 734 个字)
+                    5 分钟 读完 (大约 735 个字)
                 </span>
                 
             </div>
@@ -162,6 +162,7 @@
 <li><strong>代码链接</strong></li>
 </ul>
 <hr>
+<a id="more"></a>
 <h1 id="单例模式（Singleton）"><a href="#单例模式（Singleton）" class="headerlink" title="单例模式（Singleton）"></a><strong>单例模式（Singleton）</strong></h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>单例模式是一种对象创建型模式，使用单例模式，可以保证为一个类只生成唯一的实例对象。也就是说，在整个程序空间中，该类只存在一个实例对象。<br>GoF对单例模式的定义是：保证一个类、只有一个实例存在，同时提供能对该实例加以访问的全局访问方法。</p>
 <h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><p>一个无状态的类使用单例模式节省内存资源。为了性能的考虑，需要节省对象的创建时间，全局变量，共享资源，如全局连接池，客户端全局配置项，客户端账号信息等。</p>
 <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p><strong>C++多线程下懒汉式使用线程锁</strong></p>
