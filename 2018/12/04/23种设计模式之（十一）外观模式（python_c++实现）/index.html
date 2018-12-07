@@ -8,13 +8,14 @@
 
 
     <meta name="description" content="本文主要介绍23种设计模式之外观模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
+<meta name="keywords" content="c++,python,Design Patterns">
 <meta property="og:type" content="article">
 <meta property="og:title" content="23种设计模式之（十一）外观模式（Facade）">
 <meta property="og:url" content="http://blog.zhuzl.xyz/2018/12/04/23种设计模式之（十一）外观模式（python_c++实现）/index.html">
 <meta property="og:site_name" content="zzl&#39;blog">
 <meta property="og:description" content="本文主要介绍23种设计模式之外观模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-07T07:45:49.481Z">
+<meta property="og:updated_time" content="2018-12-07T08:57:07.388Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="23种设计模式之（十一）外观模式（Facade）">
 <meta name="twitter:description" content="本文主要介绍23种设计模式之外观模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
@@ -136,6 +137,10 @@
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2018-12-04T12:07:40.236Z">2018-12-04</time>
                 
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
+                </div>
+                
                 
                 <span class="level-item has-text-grey">
                     
@@ -168,10 +173,19 @@
 <p>##应用场景</p>
 <p>（1）、为复杂的模块或子系统提供外界访问的模块。</p>
 <p>（ 2）、子系统相对独立。 </p>
-<h2 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h2><h3 id="C-代码示例"><a href="#C-代码示例" class="headerlink" title="C++代码示例"></a>C++代码示例</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/************************************************************************/</span></span><br><span class="line"><span class="comment">/* 设计模式专题</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">/* 外观模式</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">/* Author  : zzl</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">/* 编程环境: window10 vs2010</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">/* Date    : 20180916</span></span><br><span class="line"><span class="comment">/************************************************************************/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubSystemA</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">doThing</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"SubSystemA run\n"</span> );</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubSystemB</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">doThing</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"SubSystemB run\n"</span> );</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubSystemC</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">doThing</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"SubSystemC run\n"</span> );</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Facade</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Facade()</span><br><span class="line">	&#123;</span><br><span class="line">		sysA = <span class="keyword">new</span> SubSystemA;</span><br><span class="line">		sysB = <span class="keyword">new</span> SubSystemB;</span><br><span class="line">		sysC = <span class="keyword">new</span> SubSystemC;</span><br><span class="line">	&#125;</span><br><span class="line">	~Facade()</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">delete</span> sysA;</span><br><span class="line">		<span class="keyword">delete</span> sysB;</span><br><span class="line">		<span class="keyword">delete</span> sysC;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">doThing</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		sysA-&gt;doThing();</span><br><span class="line">		sysB-&gt;doThing();</span><br><span class="line">		sysC-&gt;doThing();</span><br><span class="line">	&#125;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	SubSystemA *sysA;</span><br><span class="line">	SubSystemB *sysB;</span><br><span class="line">	SubSystemC *sysC;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Facade *f = <span class="keyword">new</span> Facade;</span><br><span class="line">	f-&gt;doThing();</span><br><span class="line">	<span class="keyword">delete</span> f;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="python代码示例"><a href="#python代码示例" class="headerlink" title="python代码示例"></a>python代码示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">###################################################################</span></span><br><span class="line"><span class="comment"># 设计模式专题</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># 外观模式</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># Author  : zzl</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># 编程环境: window10 python2.7</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># Date    : 20180916</span></span><br><span class="line"><span class="comment">##################################################################</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubSystemA</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">do_thing</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"SubSystemA run"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubSystemB</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">do_thing</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"SubSystemB run"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubSystemC</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">do_thing</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"SubSystemC run"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Facade</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.sysA = SubSystemA()</span><br><span class="line">        self.sysB = SubSystemB()</span><br><span class="line">        self.sysC = SubSystemC()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">do_thing</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.sysA.do_thing()</span><br><span class="line">        self.sysB.do_thing()</span><br><span class="line">        self.sysC.do_thing()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    f = Facade()</span><br><span class="line">    f.do_thing()</span><br></pre></td></tr></table></figure>
+<h2 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h2><h3 id="C-代码示例"><a href="#C-代码示例" class="headerlink" title="C++代码示例"></a>C++代码示例</h3><figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/************************************************************************/</span></span><br><span class="line"><span class="hljs-comment">/* 设计模式专题</span></span><br><span class="line"><span class="hljs-comment">/*</span></span><br><span class="line"><span class="hljs-comment">/* 外观模式</span></span><br><span class="line"><span class="hljs-comment">/*</span></span><br><span class="line"><span class="hljs-comment">/* Author  : zzl</span></span><br><span class="line"><span class="hljs-comment">/*</span></span><br><span class="line"><span class="hljs-comment">/* 编程环境: window10 vs2010</span></span><br><span class="line"><span class="hljs-comment">/*</span></span><br><span class="line"><span class="hljs-comment">/* Date    : 20180916</span></span><br><span class="line"><span class="hljs-comment">/************************************************************************/</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SubSystemA</span></span></span><br><span class="line"><span class="hljs-class">&#123;</span></span><br><span class="line"><span class="hljs-keyword">public</span>:</span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">doThing</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function">	</span>&#123;</span><br><span class="line">		<span class="hljs-built_in">printf</span>(<span class="hljs-string">"SubSystemA run\n"</span> );</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SubSystemB</span></span></span><br><span class="line"><span class="hljs-class">&#123;</span></span><br><span class="line"><span class="hljs-keyword">public</span>:</span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">doThing</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function">	</span>&#123;</span><br><span class="line">		<span class="hljs-built_in">printf</span>(<span class="hljs-string">"SubSystemB run\n"</span> );</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SubSystemC</span></span></span><br><span class="line"><span class="hljs-class">&#123;</span></span><br><span class="line"><span class="hljs-keyword">public</span>:</span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">doThing</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function">	</span>&#123;</span><br><span class="line">		<span class="hljs-built_in">printf</span>(<span class="hljs-string">"SubSystemC run\n"</span> );</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Facade</span></span></span><br><span class="line"><span class="hljs-class">&#123;</span></span><br><span class="line"><span class="hljs-keyword">public</span>:</span><br><span class="line">	Facade()</span><br><span class="line">	&#123;</span><br><span class="line">		sysA = <span class="hljs-keyword">new</span> SubSystemA;</span><br><span class="line">		sysB = <span class="hljs-keyword">new</span> SubSystemB;</span><br><span class="line">		sysC = <span class="hljs-keyword">new</span> SubSystemC;</span><br><span class="line">	&#125;</span><br><span class="line">	~Facade()</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="hljs-keyword">delete</span> sysA;</span><br><span class="line">		<span class="hljs-keyword">delete</span> sysB;</span><br><span class="line">		<span class="hljs-keyword">delete</span> sysC;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="hljs-keyword">public</span>:</span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">doThing</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function">	</span>&#123;</span><br><span class="line">		sysA-&gt;doThing();</span><br><span class="line">		sysB-&gt;doThing();</span><br><span class="line">		sysC-&gt;doThing();</span><br><span class="line">	&#125;</span><br><span class="line"><span class="hljs-keyword">protected</span>:</span><br><span class="line"><span class="hljs-keyword">private</span>:</span><br><span class="line">	SubSystemA *sysA;</span><br><span class="line">	SubSystemB *sysB;</span><br><span class="line">	SubSystemC *sysC;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">	Facade *f = <span class="hljs-keyword">new</span> Facade;</span><br><span class="line">	f-&gt;doThing();</span><br><span class="line">	<span class="hljs-keyword">delete</span> f;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="python代码示例"><a href="#python代码示例" class="headerlink" title="python代码示例"></a>python代码示例</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="hljs-comment">###################################################################</span></span><br><span class="line"><span class="hljs-comment"># 设计模式专题</span></span><br><span class="line"><span class="hljs-comment"># </span></span><br><span class="line"><span class="hljs-comment"># 外观模式</span></span><br><span class="line"><span class="hljs-comment"># </span></span><br><span class="line"><span class="hljs-comment"># Author  : zzl</span></span><br><span class="line"><span class="hljs-comment"># </span></span><br><span class="line"><span class="hljs-comment"># 编程环境: window10 python2.7</span></span><br><span class="line"><span class="hljs-comment"># </span></span><br><span class="line"><span class="hljs-comment"># Date    : 20180916</span></span><br><span class="line"><span class="hljs-comment">##################################################################</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SubSystemA</span><span class="hljs-params">(object)</span>:</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">do_thing</span><span class="hljs-params">(self)</span>:</span></span><br><span class="line">        print(<span class="hljs-string">"SubSystemA run"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SubSystemB</span><span class="hljs-params">(object)</span>:</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">do_thing</span><span class="hljs-params">(self)</span>:</span></span><br><span class="line">        print(<span class="hljs-string">"SubSystemB run"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SubSystemC</span><span class="hljs-params">(object)</span>:</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">do_thing</span><span class="hljs-params">(self)</span>:</span></span><br><span class="line">        print(<span class="hljs-string">"SubSystemC run"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Facade</span><span class="hljs-params">(object)</span>:</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span></span><br><span class="line">        self.sysA = SubSystemA()</span><br><span class="line">        self.sysB = SubSystemB()</span><br><span class="line">        self.sysC = SubSystemC()</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">do_thing</span><span class="hljs-params">(self)</span>:</span></span><br><span class="line">        self.sysA.do_thing()</span><br><span class="line">        self.sysB.do_thing()</span><br><span class="line">        self.sysC.do_thing()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:</span><br><span class="line">    f = Facade()</span><br><span class="line">    f.do_thing()</span><br></pre></td></tr></table></figure>
 <h2 id="源码链接"><a href="#源码链接" class="headerlink" title="源码链接"></a>源码链接</h2><p><a href="https://download.csdn.net/download/zzl_python/10669750" target="_blank" rel="noopener">设计模式（十一）外观模式示例代码(python–c++)</a></p>
 
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Design-Patterns/">Design Patterns</a>, <a class="has-link-grey -link" href="/tags/c/">c++</a>, <a class="has-link-grey -link" href="/tags/python/">python</a>
+                </div>
+            </div>
         </div>
         
         
@@ -275,7 +289,7 @@
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        0
+                        1
                     </p>
                 </div>
             </div>
@@ -285,7 +299,7 @@
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        0
+                        3
                     </p>
                 </div>
             </div>
@@ -375,13 +389,30 @@
                 分类
             </h3>
             <ul class="menu-list">
-            
+            <li>
+        <a class="level is-marginless" href="/categories/设计模式/">
+            <span class="level-start">
+                <span class="level-item">设计模式</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">24</span>
+            </span>
+        </a></li>
             </ul>
         </div>
     </div>
 </div>
     
         
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/Design-Patterns/" style="font-size: 10px;">Design Patterns</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/python/" style="font-size: 10px;">python</a>
+    </div>
+</div>
+
     
         
 <div class="card widget">
@@ -403,7 +434,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-04T12:07:40.897Z">2018-12-04</time></div>
                     <a href="/2018/12/04/23种设计模式之（一）单例模式（python_c++实现)/" class="has-link-black-ter is-size-6">23种设计模式之（一）单例模式（Singleton）</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
                     </p>
                 </div>
             </div>
@@ -422,7 +453,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-04T12:07:40.872Z">2018-12-04</time></div>
                     <a href="/2018/12/04/设计模式简介/" class="has-link-black-ter is-size-6">设计模式简介</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
                     </p>
                 </div>
             </div>
@@ -441,7 +472,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-04T12:07:40.854Z">2018-12-04</time></div>
                     <a href="/2018/12/04/23种设计模式之（八）适配器模式（python_c++实现）/" class="has-link-black-ter is-size-6">23种设计模式之（八）适配器模式（Adapter）</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
                     </p>
                 </div>
             </div>
@@ -460,7 +491,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-04T12:07:40.810Z">2018-12-04</time></div>
                     <a href="/2018/12/04/23种设计模式之（二）工厂方法模式（python_c++实现）/" class="has-link-black-ter is-size-6">23种设计模式之（二）工厂方法模式（Factory Method）</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
                     </p>
                 </div>
             </div>
@@ -479,7 +510,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-04T12:07:40.799Z">2018-12-04</time></div>
                     <a href="/2018/12/04/23种设计模式之（二十）访问者模式（python_c++实现)/" class="has-link-black-ter is-size-6">23种设计模式之（二十）访问者模式（Visitor）</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
                     </p>
                 </div>
             </div>
@@ -520,6 +551,39 @@
                 标签
             </h3>
             <ul class="menu-list">
+                
+                <li>
+                    <a class="level is-marginless" href="/tags/Design-Patterns/">
+                        <span class="level-start">
+                            <span class="level-item">Design Patterns</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">24</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/tags/c/">
+                        <span class="level-start">
+                            <span class="level-item">c++</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">24</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/tags/python/">
+                        <span class="level-start">
+                            <span class="level-item">python</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">24</span>
+                        </span>
+                    </a>
+                </li>
                 
             </ul>
         </div>

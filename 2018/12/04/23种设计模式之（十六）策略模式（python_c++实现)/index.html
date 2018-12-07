@@ -8,13 +8,14 @@
 
 
     <meta name="description" content="本文主要介绍23种设计模式之策略模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
+<meta name="keywords" content="c++,python,Design Patterns">
 <meta property="og:type" content="article">
 <meta property="og:title" content="23种设计模式之（十六）策略模式（Strategy ）">
 <meta property="og:url" content="http://blog.zhuzl.xyz/2018/12/04/23种设计模式之（十六）策略模式（python_c++实现)/index.html">
 <meta property="og:site_name" content="zzl&#39;blog">
 <meta property="og:description" content="本文主要介绍23种设计模式之策略模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-07T07:46:15.803Z">
+<meta property="og:updated_time" content="2018-12-07T08:57:31.036Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="23种设计模式之（十六）策略模式（Strategy ）">
 <meta name="twitter:description" content="本文主要介绍23种设计模式之策略模式，附详细python/c++示例代码。  概念 应用场景 注意事项 代码示例 总结 代码链接">
@@ -136,6 +137,10 @@
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2018-12-04T12:07:40.451Z">2018-12-04</time>
                 
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
+                </div>
+                
                 
                 <span class="level-item has-text-grey">
                     
@@ -168,10 +173,19 @@
 <h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><p>（1）、如果在一个系统里面有许多类，它们之间的区别仅在于它们的行为，那么使用策略模式可以动态地让一个对象在许多行为中选择一种行为。 </p>
 <p>（2）、一个系统需要动态地在几种算法中选择一种。</p>
 <p>（3）、如果一个对象有很多的行为，如果不用恰当的模式，这些行为就只好使用多重的条件选择语句来实现。</p>
-<h3 id="C-代码示例"><a href="#C-代码示例" class="headerlink" title="C++代码示例"></a>C++代码示例</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/************************************************************************/</span></span><br><span class="line"><span class="comment">/* 设计模式专题</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">/* 策略模式</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">/* Author  : zzl</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">/* 编程环境: window10 vs2010</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">/* Date    : 20180918</span></span><br><span class="line"><span class="comment">/************************************************************************/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Strategy</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">crypt</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AES</span> :</span>  <span class="keyword">public</span> Strategy</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">crypt</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"AES encrypt\n"</span> );</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DES</span> :</span>  <span class="keyword">public</span> Strategy</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">crypt</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"DES encrypt\n"</span> );</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Context</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">setStrategy</span><span class="params">(Strategy *strategy)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>-&gt;strategy = strategy;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">test_encrypt</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		strategy-&gt;crypt();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	Strategy *strategy;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">	Strategy *strategy = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//strategy = new DES;</span></span><br><span class="line">	strategy = <span class="keyword">new</span> AES;</span><br><span class="line">	Context *context = <span class="keyword">new</span> Context;</span><br><span class="line">	context-&gt;setStrategy(strategy);</span><br><span class="line">	context-&gt;test_encrypt();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">delete</span>  strategy;</span><br><span class="line">	<span class="keyword">delete</span>  context;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="python代码示例"><a href="#python代码示例" class="headerlink" title="python代码示例"></a>python代码示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">###################################################################</span></span><br><span class="line"><span class="comment"># 设计模式专题</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># 策略模式</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># Author  : zzl</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># 编程环境: window10 python2.7</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># Date    : 20180918</span></span><br><span class="line"><span class="comment">##################################################################</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Strategy</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">crypt</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AES</span><span class="params">(Strategy)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">crypt</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"AES encrypt"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DES</span><span class="params">(Strategy)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">crypt</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"DES encrypt"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Context</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.m_strategy = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_encrypt</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.m_strategy.crypt()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    strategy = DES()</span><br><span class="line">    <span class="comment">#strategy = AES()</span></span><br><span class="line">    context = Context()</span><br><span class="line">    context.m_strategy = strategy</span><br><span class="line">    context.test_encrypt()</span><br></pre></td></tr></table></figure>
+<h3 id="C-代码示例"><a href="#C-代码示例" class="headerlink" title="C++代码示例"></a>C++代码示例</h3><figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/************************************************************************/</span></span><br><span class="line"><span class="hljs-comment">/* 设计模式专题</span></span><br><span class="line"><span class="hljs-comment">/*</span></span><br><span class="line"><span class="hljs-comment">/* 策略模式</span></span><br><span class="line"><span class="hljs-comment">/*</span></span><br><span class="line"><span class="hljs-comment">/* Author  : zzl</span></span><br><span class="line"><span class="hljs-comment">/*</span></span><br><span class="line"><span class="hljs-comment">/* 编程环境: window10 vs2010</span></span><br><span class="line"><span class="hljs-comment">/*</span></span><br><span class="line"><span class="hljs-comment">/* Date    : 20180918</span></span><br><span class="line"><span class="hljs-comment">/************************************************************************/</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Strategy</span></span></span><br><span class="line"><span class="hljs-class">&#123;</span></span><br><span class="line"><span class="hljs-keyword">public</span>:</span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">crypt</span><span class="hljs-params">()</span> </span>= <span class="hljs-number">0</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AES</span> :</span>  <span class="hljs-keyword">public</span> Strategy</span><br><span class="line">&#123;</span><br><span class="line"><span class="hljs-keyword">public</span>:</span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">crypt</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function">	</span>&#123;</span><br><span class="line">		<span class="hljs-built_in">printf</span>(<span class="hljs-string">"AES encrypt\n"</span> );</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DES</span> :</span>  <span class="hljs-keyword">public</span> Strategy</span><br><span class="line">&#123;</span><br><span class="line"><span class="hljs-keyword">public</span>:</span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">crypt</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function">	</span>&#123;</span><br><span class="line">		<span class="hljs-built_in">printf</span>(<span class="hljs-string">"DES encrypt\n"</span> );</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Context</span></span></span><br><span class="line"><span class="hljs-class">&#123;</span></span><br><span class="line"><span class="hljs-keyword">public</span>:</span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setStrategy</span><span class="hljs-params">(Strategy *strategy)</span></span></span><br><span class="line"><span class="hljs-function">	</span>&#123;</span><br><span class="line">		<span class="hljs-keyword">this</span>-&gt;strategy = strategy;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">test_encrypt</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function">	</span>&#123;</span><br><span class="line">		strategy-&gt;crypt();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">protected</span>:</span><br><span class="line"><span class="hljs-keyword">private</span>:</span><br><span class="line">	Strategy *strategy;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line"></span><br><span class="line">	Strategy *strategy = <span class="hljs-literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">	<span class="hljs-comment">//strategy = new DES;</span></span><br><span class="line">	strategy = <span class="hljs-keyword">new</span> AES;</span><br><span class="line">	Context *context = <span class="hljs-keyword">new</span> Context;</span><br><span class="line">	context-&gt;setStrategy(strategy);</span><br><span class="line">	context-&gt;test_encrypt();</span><br><span class="line"></span><br><span class="line">	<span class="hljs-keyword">delete</span>  strategy;</span><br><span class="line">	<span class="hljs-keyword">delete</span>  context;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="python代码示例"><a href="#python代码示例" class="headerlink" title="python代码示例"></a>python代码示例</h3><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="hljs-comment">###################################################################</span></span><br><span class="line"><span class="hljs-comment"># 设计模式专题</span></span><br><span class="line"><span class="hljs-comment"># </span></span><br><span class="line"><span class="hljs-comment"># 策略模式</span></span><br><span class="line"><span class="hljs-comment"># </span></span><br><span class="line"><span class="hljs-comment"># Author  : zzl</span></span><br><span class="line"><span class="hljs-comment"># </span></span><br><span class="line"><span class="hljs-comment"># 编程环境: window10 python2.7</span></span><br><span class="line"><span class="hljs-comment"># </span></span><br><span class="line"><span class="hljs-comment"># Date    : 20180918</span></span><br><span class="line"><span class="hljs-comment">##################################################################</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Strategy</span><span class="hljs-params">(object)</span>:</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">crypt</span><span class="hljs-params">(self)</span>:</span></span><br><span class="line">        <span class="hljs-keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AES</span><span class="hljs-params">(Strategy)</span>:</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">crypt</span><span class="hljs-params">(self)</span>:</span></span><br><span class="line">        print(<span class="hljs-string">"AES encrypt"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DES</span><span class="hljs-params">(Strategy)</span>:</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">crypt</span><span class="hljs-params">(self)</span>:</span></span><br><span class="line">        print(<span class="hljs-string">"DES encrypt"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Context</span><span class="hljs-params">(object)</span>:</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span></span><br><span class="line">        self.m_strategy = <span class="hljs-keyword">None</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_encrypt</span><span class="hljs-params">(self)</span>:</span></span><br><span class="line">        self.m_strategy.crypt()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:</span><br><span class="line">    strategy = DES()</span><br><span class="line">    <span class="hljs-comment">#strategy = AES()</span></span><br><span class="line">    context = Context()</span><br><span class="line">    context.m_strategy = strategy</span><br><span class="line">    context.test_encrypt()</span><br></pre></td></tr></table></figure>
 <h2 id="源码链接"><a href="#源码链接" class="headerlink" title="源码链接"></a>源码链接</h2><p><a href="https://download.csdn.net/download/zzl_python/10673896" target="_blank" rel="noopener">设计模式（十六）策略模式示例代码(python–c++)</a></p>
 
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Design-Patterns/">Design Patterns</a>, <a class="has-link-grey -link" href="/tags/c/">c++</a>, <a class="has-link-grey -link" href="/tags/python/">python</a>
+                </div>
+            </div>
         </div>
         
         
@@ -275,7 +289,7 @@
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        0
+                        1
                     </p>
                 </div>
             </div>
@@ -285,7 +299,7 @@
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        0
+                        3
                     </p>
                 </div>
             </div>
@@ -375,13 +389,30 @@
                 分类
             </h3>
             <ul class="menu-list">
-            
+            <li>
+        <a class="level is-marginless" href="/categories/设计模式/">
+            <span class="level-start">
+                <span class="level-item">设计模式</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">24</span>
+            </span>
+        </a></li>
             </ul>
         </div>
     </div>
 </div>
     
         
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/Design-Patterns/" style="font-size: 10px;">Design Patterns</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/python/" style="font-size: 10px;">python</a>
+    </div>
+</div>
+
     
         
 <div class="card widget">
@@ -403,7 +434,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-04T12:07:40.897Z">2018-12-04</time></div>
                     <a href="/2018/12/04/23种设计模式之（一）单例模式（python_c++实现)/" class="has-link-black-ter is-size-6">23种设计模式之（一）单例模式（Singleton）</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
                     </p>
                 </div>
             </div>
@@ -422,7 +453,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-04T12:07:40.872Z">2018-12-04</time></div>
                     <a href="/2018/12/04/设计模式简介/" class="has-link-black-ter is-size-6">设计模式简介</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
                     </p>
                 </div>
             </div>
@@ -441,7 +472,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-04T12:07:40.854Z">2018-12-04</time></div>
                     <a href="/2018/12/04/23种设计模式之（八）适配器模式（python_c++实现）/" class="has-link-black-ter is-size-6">23种设计模式之（八）适配器模式（Adapter）</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
                     </p>
                 </div>
             </div>
@@ -460,7 +491,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-04T12:07:40.810Z">2018-12-04</time></div>
                     <a href="/2018/12/04/23种设计模式之（二）工厂方法模式（python_c++实现）/" class="has-link-black-ter is-size-6">23种设计模式之（二）工厂方法模式（Factory Method）</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
                     </p>
                 </div>
             </div>
@@ -479,7 +510,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-04T12:07:40.799Z">2018-12-04</time></div>
                     <a href="/2018/12/04/23种设计模式之（二十）访问者模式（python_c++实现)/" class="has-link-black-ter is-size-6">23种设计模式之（二十）访问者模式（Visitor）</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/设计模式/">设计模式</a>
                     </p>
                 </div>
             </div>
@@ -520,6 +551,39 @@
                 标签
             </h3>
             <ul class="menu-list">
+                
+                <li>
+                    <a class="level is-marginless" href="/tags/Design-Patterns/">
+                        <span class="level-start">
+                            <span class="level-item">Design Patterns</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">24</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/tags/c/">
+                        <span class="level-start">
+                            <span class="level-item">c++</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">24</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/tags/python/">
+                        <span class="level-start">
+                            <span class="level-item">python</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">24</span>
+                        </span>
+                    </a>
+                </li>
                 
             </ul>
         </div>
